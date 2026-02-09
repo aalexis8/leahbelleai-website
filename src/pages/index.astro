@@ -1,0 +1,118 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+
+const services = [
+  {
+    title: 'ETL & Data Migration',
+    description: 'Seamlessly extract, transform, and load your data across systems with our proven methodologies and cutting-edge tools.',
+    icon: '🔄',
+    href: '/services#etl',
+  },
+  {
+    title: 'Data Modeling',
+    description: 'Design robust, scalable data models that support your business intelligence and analytics initiatives.',
+    icon: '📊',
+    href: '/services#modeling',
+  },
+  {
+    title: 'Data Integration',
+    description: 'Connect disparate systems and create unified data ecosystems that drive informed decision-making.',
+    icon: '🔗',
+    href: '/services#integration',
+  },
+];
+---
+
+<Layout title="Home">
+  <Header />
+  
+  <main class="flex-grow">
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden bg-gradient-to-br from-gray-50 to-white">
+      <div class="container section">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h1 class="text-balance mb-6">
+              Transform Your Data Into 
+              <span class="gradient-text">Actionable Insights</span>
+            </h1>
+            <p class="text-xl text-gray-600 mb-8 max-w-xl">
+              LeahBelle AI Consulting delivers expert data solutions that empower businesses 
+              to harness the full potential of their data assets.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="/contact" class="btn btn-primary">
+                Schedule a Consultation
+              </a>
+              <a href="/services" class="btn btn-secondary">
+                Explore Services
+              </a>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="aspect-square rounded-2xl bg-gradient-brand opacity-10 absolute inset-0"></div>
+            <div class="relative p-8">
+              <img 
+                src="/favicon.svg" 
+                alt="LeahBelle AI Data Visualization" 
+                class="w-full max-w-md mx-auto"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Decorative elements -->
+      <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-primary-purple/5 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-96 h-96 bg-primary-blue/5 rounded-full blur-3xl"></div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="section bg-white">
+      <div class="container">
+        <div class="text-center mb-12">
+          <h2 class="mb-4">Our <span class="gradient-text">Services</span></h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            We provide comprehensive data solutions tailored to your business needs.
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+          {services.map((service) => (
+            <a href={service.href} class="card group">
+              <div class="text-4xl mb-4">{service.icon}</div>
+              <h3 class="text-xl mb-3 group-hover:text-primary-purple transition-colors">
+                {service.title}
+              </h3>
+              <p class="text-gray-600">{service.description}</p>
+              <div class="mt-4 text-primary-purple font-medium flex items-center">
+                Learn more
+                <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section bg-gradient-brand text-white">
+      <div class="container text-center">
+        <h2 class="text-white mb-4">Ready to Transform Your Data Strategy?</h2>
+        <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+          Let's discuss how LeahBelle AI Consulting can help you unlock the value in your data.
+        </p>
+        <a href="/contact" class="btn bg-white text-primary-purple hover:bg-gray-100">
+          Get in Touch
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+

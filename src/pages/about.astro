@@ -1,0 +1,155 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+
+const values = [
+  {
+    title: 'Excellence',
+    description: 'We deliver solutions that exceed expectations, built on deep expertise and proven methodologies.',
+    icon: '⭐',
+  },
+  {
+    title: 'Innovation',
+    description: 'We stay at the forefront of data technology, bringing cutting-edge solutions to every project.',
+    icon: '💡',
+  },
+  {
+    title: 'Partnership',
+    description: 'We work alongside our clients as true partners, invested in their long-term success.',
+    icon: '🤝',
+  },
+  {
+    title: 'Integrity',
+    description: 'We build trust through transparency, honest communication, and ethical practices.',
+    icon: '🛡️',
+  },
+];
+---
+
+<Layout 
+  title="About Us" 
+  description="Learn about LeahBelle AI Consulting - our mission, values, and commitment to delivering exceptional data solutions."
+>
+  <Header />
+  
+  <main class="flex-grow">
+    <!-- Hero -->
+    <section class="section bg-gradient-to-br from-gray-50 to-white">
+      <div class="container">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h1 class="mb-6">About <span class="gradient-text">LeahBelle AI</span></h1>
+            <p class="text-xl text-gray-600 mb-6">
+              LeahBelle AI Consulting is a premier data consulting firm dedicated to helping 
+              organizations unlock the full potential of their data assets.
+            </p>
+            <p class="text-lg text-gray-600">
+              Founded with a vision to bridge the gap between complex data challenges and 
+              practical business solutions, we bring together deep technical expertise 
+              with a client-focused approach to deliver transformative results.
+            </p>
+          </div>
+          <div class="relative">
+            <div class="aspect-square rounded-2xl bg-gradient-brand opacity-10"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission -->
+    <section class="section bg-white">
+      <div class="container">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="mb-6">Our <span class="gradient-text">Mission</span></h2>
+          <p class="text-xl text-gray-600">
+            To empower organizations with intelligent data solutions that drive growth, 
+            efficiency, and competitive advantage. We believe that every business deserves 
+            access to world-class data infrastructure and analytics capabilities.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values -->
+    <section class="section bg-gray-50">
+      <div class="container">
+        <div class="text-center mb-12">
+          <h2 class="mb-4">Our <span class="gradient-text">Values</span></h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            These core principles guide everything we do.
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {values.map((value) => (
+            <div class="card text-center">
+              <div class="text-4xl mb-4">{value.icon}</div>
+              <h3 class="text-xl mb-3">{value.title}</h3>
+              <p class="text-gray-600">{value.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="section bg-white">
+      <div class="container">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="mb-6">Why Choose <span class="gradient-text">LeahBelle?</span></h2>
+            <div class="space-y-6">
+              <div class="flex items-start">
+                <div class="w-12 h-12 rounded-lg bg-gradient-brand flex items-center justify-center text-white font-bold mr-4 flex-shrink-0">
+                  1
+                </div>
+                <div>
+                  <h4 class="text-lg font-semibold mb-2">Deep Technical Expertise</h4>
+                  <p class="text-gray-600">Years of experience across diverse industries and data platforms.</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="w-12 h-12 rounded-lg bg-gradient-brand flex items-center justify-center text-white font-bold mr-4 flex-shrink-0">
+                  2
+                </div>
+                <div>
+                  <h4 class="text-lg font-semibold mb-2">Tailored Solutions</h4>
+                  <p class="text-gray-600">Custom approaches designed for your unique business challenges.</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="w-12 h-12 rounded-lg bg-gradient-brand flex items-center justify-center text-white font-bold mr-4 flex-shrink-0">
+                  3
+                </div>
+                <div>
+                  <h4 class="text-lg font-semibold mb-2">Results-Driven</h4>
+                  <p class="text-gray-600">Focused on delivering measurable business outcomes.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="aspect-video rounded-2xl bg-gradient-brand opacity-10"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section bg-gradient-brand text-white">
+      <div class="container text-center">
+        <h2 class="text-white mb-4">Let's Work Together</h2>
+        <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+          Ready to transform your data strategy? We'd love to hear about your project.
+        </p>
+        <a href="/contact" class="btn bg-white text-primary-purple hover:bg-gray-100">
+          Get in Touch
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+

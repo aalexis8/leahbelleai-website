@@ -1,0 +1,29 @@
+{
+  "name": "leahbelle-website",
+  "version": "1.0.0",
+  "description": "LeahBelle AI Consulting - Data Solutions Website",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "keywords": [
+    "astro",
+    "tailwindcss",
+    "consulting",
+    "data",
+    "ai"
+  ],
+  "author": "LeahBelle AI Consulting",
+  "license": "MIT",
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.13",
+    "@astrojs/tailwind": "^6.0.2",
+    "@tailwindcss/typography": "^0.5.19",
+    "astro": "^5.17.1",
+    "tailwindcss": "^3.4.19"
+  }
+}

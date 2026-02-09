@@ -1,0 +1,83 @@
+---
+title: "Data Modeling Fundamentals: A Guide to Dimensional Design"
+description: "Master the fundamentals of dimensional data modeling and learn how to design schemas that support powerful analytics and reporting."
+pubDate: 2026-01-25
+category: "Data Modeling"
+tags: ["data-modeling", "dimensional-design", "star-schema", "analytics"]
+author: "LeahBelle AI Consulting"
+---
+
+Effective data modeling is the foundation of any successful analytics initiative. In this guide, we'll explore the fundamentals of dimensional modeling and how it enables powerful business intelligence.
+
+## What is Dimensional Modeling?
+
+Dimensional modeling is a data structure technique optimized for data warehousing and business intelligence. Pioneered by Ralph Kimball, this approach organizes data into facts and dimensions to support intuitive querying and fast performance.
+
+## Core Concepts
+
+### Fact Tables
+
+Fact tables store the measurable, quantitative data about your business processes. They contain:
+
+- **Measures**: Numeric values that can be aggregated (revenue, quantity, count)
+- **Foreign Keys**: References to dimension tables
+- **Grain**: The level of detail each row represents
+
+### Dimension Tables
+
+Dimensions provide the context for your facts. They contain descriptive attributes that allow users to filter, group, and label data meaningfully.
+
+Common dimensions include:
+- Time/Date
+- Customer
+- Product
+- Geography
+- Employee
+
+## Star Schema vs. Snowflake Schema
+
+### Star Schema
+
+The star schema features a central fact table directly connected to dimension tables. It's called a "star" because the diagram resembles a star.
+
+**Advantages:**
+- Simple to understand and navigate
+- Optimal query performance
+- Reduced number of joins
+
+### Snowflake Schema
+
+The snowflake schema normalizes dimension tables into sub-dimensions, creating a more complex structure.
+
+**Advantages:**
+- Reduced data redundancy
+- Easier maintenance of dimension attributes
+- Better for very large dimensions
+
+## Best Practices for Dimensional Modeling
+
+### 1. Define the Grain First
+
+Before adding any measures or dimensions, clearly define what each row in your fact table represents. This decision drives all subsequent design choices.
+
+### 2. Use Surrogate Keys
+
+Always use surrogate keys (system-generated integers) as primary keys in dimension tables rather than natural business keys.
+
+### 3. Handle Slowly Changing Dimensions (SCD)
+
+Plan for how you'll track changes to dimension attributes over time:
+- **Type 1**: Overwrite the old value
+- **Type 2**: Create a new row with version history
+- **Type 3**: Add columns for current and previous values
+
+### 4. Design for Usability
+
+Remember that business users will query this data. Use clear, business-friendly names and organize attributes logically.
+
+## Conclusion
+
+A well-designed dimensional model empowers your organization to answer business questions quickly and accurately. Taking time to properly design your data warehouse pays dividends in user adoption and analytical capabilities.
+
+Need help designing your data model? [Contact us](/contact) to speak with our experts.
+

@@ -1,0 +1,114 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+
+const services = [
+  {
+    id: 'etl',
+    title: 'ETL & Data Migration',
+    description: 'Our ETL (Extract, Transform, Load) and data migration services help organizations seamlessly move data across systems while ensuring data quality and integrity.',
+    features: [
+      'Legacy system migration to modern platforms',
+      'Cloud data warehouse implementation',
+      'Real-time and batch data processing',
+      'Data quality validation and cleansing',
+      'Custom transformation pipelines',
+    ],
+    icon: '🔄',
+  },
+  {
+    id: 'modeling',
+    title: 'Data Modeling',
+    description: 'We design robust, scalable data models that form the foundation of your business intelligence and analytics initiatives.',
+    features: [
+      'Dimensional modeling (Star/Snowflake schemas)',
+      'Entity-relationship design',
+      'Data vault methodology',
+      'Performance optimization',
+      'Documentation and governance',
+    ],
+    icon: '📊',
+  },
+  {
+    id: 'integration',
+    title: 'Data Integration',
+    description: 'Connect your disparate systems and create unified data ecosystems that enable informed decision-making across your organization.',
+    features: [
+      'API development and integration',
+      'Real-time data streaming',
+      'Master data management',
+      'Cross-platform data synchronization',
+      'Data federation solutions',
+    ],
+    icon: '🔗',
+  },
+];
+---
+
+<Layout 
+  title="Services" 
+  description="LeahBelle AI Consulting offers expert ETL, Data Migration, Data Modeling, and Data Integration services to transform your business."
+>
+  <Header />
+  
+  <main class="flex-grow">
+    <!-- Hero -->
+    <section class="section bg-gradient-to-br from-gray-50 to-white">
+      <div class="container text-center">
+        <h1 class="mb-6">Our <span class="gradient-text">Services</span></h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          We offer comprehensive data solutions designed to help your organization 
+          leverage data as a strategic asset.
+        </p>
+      </div>
+    </section>
+
+    <!-- Services Detail -->
+    {services.map((service, index) => (
+      <section id={service.id} class:list={['section', index % 2 === 1 ? 'bg-gray-50' : 'bg-white']}>
+        <div class="container">
+          <div class:list={['grid lg:grid-cols-2 gap-12 items-center', index % 2 === 1 && 'lg:flex-row-reverse']}>
+            <div class:list={[index % 2 === 1 && 'lg:order-2']}>
+              <div class="text-5xl mb-6">{service.icon}</div>
+              <h2 class="mb-4">{service.title}</h2>
+              <p class="text-lg text-gray-600 mb-6">{service.description}</p>
+              <ul class="space-y-3">
+                {service.features.map((feature) => (
+                  <li class="flex items-start">
+                    <svg class="w-6 h-6 text-primary-purple mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span class="text-gray-700">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              <a href="/contact" class="btn btn-primary mt-8">
+                Discuss Your Project
+              </a>
+            </div>
+            <div class:list={['relative', index % 2 === 1 && 'lg:order-1']}>
+              <div class="aspect-square rounded-2xl bg-gradient-brand opacity-10"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    ))}
+
+    <!-- CTA -->
+    <section class="section bg-gradient-brand text-white">
+      <div class="container text-center">
+        <h2 class="text-white mb-4">Need a Custom Solution?</h2>
+        <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+          Our team can design tailored data solutions to meet your unique business requirements.
+        </p>
+        <a href="/contact" class="btn bg-white text-primary-purple hover:bg-gray-100">
+          Schedule a Consultation
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
