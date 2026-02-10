@@ -4,7 +4,7 @@ import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://leahbelle.ai',
+  site: 'https://leahbelleai.com',
   integrations: [
     tailwind({
       applyBaseStyles: false,
