@@ -1,17 +1,43 @@
 ---
-import '@/assets/styles/global.css';
+import "@/assets/styles/global.css";
 
 interface Props {
   title: string;
   description?: string;
+  ogImage?: string;
 }
 
-const { 
-  title, 
-  description = 'LeahBelle AI Consulting - Expert data solutions including ETL, Data Migration, Data Modeling, and Data Integration services.' 
+const {
+  title,
+  description = "LeahBelle AI Consulting - Expert data solutions including ETL, Data Migration, Data Modeling, and Data Integration services.",
+  ogImage = "/og-image.png",
 } = Astro.props;
 
 const siteTitle = `${title} | LeahBelle AI Consulting`;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+// Structured Data for LocalBusiness
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "LeahBelle AI Consulting",
+  description:
+    "Expert data solutions including ETL, Data Migration, Data Modeling, and Data Integration services.",
+  url: "https://leahbelleai.com",
+  logo: "https://leahbelleai.com/og-image.png",
+  sameAs: [],
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "US",
+  },
+  serviceType: [
+    "ETL Services",
+    "Data Migration",
+    "Data Modeling",
+    "Data Integration",
+  ],
+  areaServed: "Worldwide",
+};
 ---
 
 <!doctype html>
@@ -21,29 +47,45 @@ const siteTitle = `${title} | LeahBelle AI Consulting`;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
-    
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL} />
+
     <!-- Open Graph -->
     <meta property="og:title" content={siteTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site)} />
+    <meta property="og:site_name" content="LeahBelle AI Consulting" />
+
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={siteTitle} />
     <meta name="twitter:description" content={description} />
-    
+    <meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Structured Data -->
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify(structuredData)}
+    />
+
     <title>{siteTitle}</title>
   </head>
   <body class="min-h-screen flex flex-col">
     <slot />
   </body>
 </html>
-
